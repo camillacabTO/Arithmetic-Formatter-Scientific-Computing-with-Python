@@ -1,4 +1,4 @@
-def arithmetic_arranger(problems, showResult=False):
+def arithmetic_arranger(problems, show_result=False):
     # checking wrong format
     for problem in problems:
 
@@ -17,50 +17,50 @@ def arithmetic_arranger(problems, showResult=False):
             return 'Error: Operator must be \'+\' or \'-\'.'
 
     # formatting and solving arithmetic problems
-    lineOne = ''
-    lineTwo = ''
-    lineThree = ''
-    lineResult = ''
+    line_one = ''
+    line_two = ''
+    line_three = ''
+    line_result = ''
 
     for problem in problems:
 
         piece = problem.split()
-        longestNum = len(piece[0]) > len(piece[2])
-        longestLength = max(len(piece[0]), len(piece[2]))
+        longest_num = len(piece[0]) > len(piece[2])
+        longest_length = max(len(piece[0]), len(piece[2]))
 
-        if longestNum is True:
+        if longest_num is True:
             diff = len(piece[0]) - len(piece[2])
-            numOneSrt = ' ' * 2 + piece[0]
-            numTwoSrt = (' ' * (diff + 1)) + piece[2]
+            num_one_str= ' ' * 2 + piece[0]
+            num_two_str = (' ' * (diff + 1)) + piece[2]
         else:
             diff = len(piece[2]) - len(piece[0])
-            numOneSrt = ' ' * (diff + 2) + piece[0]
-            numTwoSrt = ' ' + piece[2]
+            num_one_str= ' ' * (diff + 2) + piece[0]
+            num_two_str = ' ' + piece[2]
 
-        lineOne += numOneSrt
-        lineTwo += piece[1] + numTwoSrt
-        lineThree += '-' * (longestLength + 2)
+        line_one += num_one_str
+        line_two += piece[1] + num_two_str
+        line_three += '-' * (longest_length + 2)
 
         # calculating result
-        if showResult is True:
-            operandOne = int(piece[0])
-            operandTwo = int(piece[2])
+        if show_result is True:
+            operand_one= int(piece[0])
+            Operand_two = int(piece[2])
 
             if piece[1] == '-':
-                result = operandOne - operandTwo
+                result = operand_one- Operand_two
             else:
-                result = operandOne + operandTwo
+                result = operand_one+ Operand_two
 
-            lineResult += str(' ' * ((longestLength + 2) - len(str(result))) + str(result))
+            line_result += str(' ' * ((longest_length + 2) - len(str(result))) + str(result))
 
         # only add 4 spaces if it is not the last arithmetic problem
         if problem != problems[-1]:
-            lineOne += '    '
-            lineTwo += '    '
-            lineThree += '    '
-            lineResult += '    '
+            line_one += '    '
+            line_two += '    '
+            line_three += '    '
+            line_result += '    '
 
-    if showResult is True:
-        return lineOne + '\n' + lineTwo + '\n' + lineThree + '\n' + lineResult
+    if show_result is True:
+        return line_one + '\n' + line_two + '\n' + line_three + '\n' + line_result
     else:
-        return lineOne + '\n' + lineTwo + '\n' + lineThree
+        return line_one + '\n' + line_two + '\n' + line_three
